@@ -1,6 +1,7 @@
 Abyss Jewel
 Active Skill Gems
 Amulets
+Atlas Region Upgrade Item
 Axes
 Belts
 Body Armours
@@ -16,6 +17,7 @@ Fishing Rods
 Flasks
 Gems
 Gloves
+HarvestInfrastructure
 Helmets
 Hybrid Flasks
 Incubator
@@ -32,6 +34,7 @@ Mana Flasks
 Map Fragments
 Maps
 Medium Relics
+Metamorph Sample
 Misc Map Items
 One Hand Axes
 One Hand Maces
@@ -42,7 +45,7 @@ Quest Items
 Quivers
 Relics
 Rings
-Rune Dagger
+Rune Daggers
 Sceptres
 Shields
 Small Relics
@@ -56,4 +59,4 @@ Two Hand Maces
 Two Hand Swords
 Utility Flasks
 Wands
-Warstaff
+Warstaves

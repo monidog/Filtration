@@ -174,14 +174,9 @@ namespace Filtration.Parser.Services
                         AddBooleanItemToBlockItems<IdentifiedBlockItem>(block, trimmedLine);
                         break;
                     }
-                    case "ElderItem":
+                    case "HasInfluence":
                     {
-                        AddBooleanItemToBlockItems<ElderItemBlockItem>(block, trimmedLine);
-                        break;
-                    }
-                    case "ShaperItem":
-                    {
-                        AddBooleanItemToBlockItems<ShaperItemBlockItem>(block, trimmedLine);
+                        AddStringListItemToBlockItems<HasInfluenceBlockItem>(block, trimmedLine);
                         break;
                     }
                     case "SynthesisedItem":
@@ -197,11 +192,6 @@ namespace Filtration.Parser.Services
                     case "AnyEnchantment":
                     {
                         AddBooleanItemToBlockItems<AnyEnchantmentBlockItem>(block, trimmedLine);
-                        break;
-                    }
-                    case "ShapedMap":
-                    {
-                        AddBooleanItemToBlockItems<ShapedMapBlockItem>(block, trimmedLine);
                         break;
                     }
                     case "Sockets":
@@ -335,11 +325,6 @@ namespace Filtration.Parser.Services
                     case "HasEnchantment":
                     {
                         AddStringListItemToBlockItems<HasEnchantmentBlockItem>(block, trimmedLine);
-                        break;
-                    }
-                    case "ElderMap":
-                    {
-                        AddBooleanItemToBlockItems<ElderMapBlockItem>(block, trimmedLine);
                         break;
                     }
                     case "DisableDropSound":

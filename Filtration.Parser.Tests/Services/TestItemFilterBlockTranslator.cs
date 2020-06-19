@@ -374,40 +374,6 @@ namespace Filtration.Parser.Tests.Services
         }
 
         [Test]
-        public void TranslateStringToItemFilterBlock_ElderItem_ReturnsCorrectObject()
-        {
-            // Arrange
-            var inputString = "Show" + Environment.NewLine +
-                              "    ElderItem False";
-
-            // Act
-            var result = _testUtility.Translator.TranslateStringToItemFilterBlock(inputString, _testUtility.MockItemFilterScript);
-
-            // Assert
-
-            Assert.AreEqual(1, result.BlockItems.Count(b => b is ElderItemBlockItem));
-            var blockItem = result.BlockItems.OfType<ElderItemBlockItem>().First();
-            Assert.IsFalse(blockItem.BooleanValue);
-        }
-
-        [Test]
-        public void TranslateStringToItemFilterBlock_ShaperItem_ReturnsCorrectObject()
-        {
-            // Arrange
-            var inputString = "Show" + Environment.NewLine +
-                              "    ShaperItem True";
-
-            // Act
-            var result = _testUtility.Translator.TranslateStringToItemFilterBlock(inputString, _testUtility.MockItemFilterScript);
-
-            // Assert
-
-            Assert.AreEqual(1, result.BlockItems.Count(b => b is ShaperItemBlockItem));
-            var blockItem = result.BlockItems.OfType<ShaperItemBlockItem>().First();
-            Assert.IsTrue(blockItem.BooleanValue);
-        }
-
-        [Test]
         public void TranslateStringToItemFilterBlock_MapTier_ReturnsCorrectObject()
         {
             // Arrange
@@ -423,40 +389,6 @@ namespace Filtration.Parser.Tests.Services
             var blockItem = result.BlockItems.OfType<MapTierBlockItem>().First();
             Assert.AreEqual(15, blockItem.FilterPredicate.PredicateOperand);
             Assert.AreEqual(FilterPredicateOperator.GreaterThanOrEqual, blockItem.FilterPredicate.PredicateOperator);
-        }
-
-        [Test]
-        public void TranslateStringToItemFilterBlock_ShapedMap_ReturnsCorrectObject()
-        {
-            // Arrange
-            var inputString = "Show" + Environment.NewLine +
-                              "    ShapedMap false";
-
-            // Act
-            var result = _testUtility.Translator.TranslateStringToItemFilterBlock(inputString, _testUtility.MockItemFilterScript);
-
-            // Assert
-
-            Assert.AreEqual(1, result.BlockItems.Count(b => b is ShapedMapBlockItem));
-            var blockItem = result.BlockItems.OfType<ShapedMapBlockItem>().First();
-            Assert.IsFalse(blockItem.BooleanValue);
-        }
-
-        [Test]
-        public void TranslateStringToItemFilterBlock_ElderMap_ReturnsCorrectObject()
-        {
-            // Arrange
-            var inputString = "Show" + Environment.NewLine +
-                              "    ElderMap false";
-
-            // Act
-            var result = _testUtility.Translator.TranslateStringToItemFilterBlock(inputString, _testUtility.MockItemFilterScript);
-
-            // Assert
-
-            Assert.AreEqual(1, result.BlockItems.Count(b => b is ElderMapBlockItem));
-            var blockItem = result.BlockItems.OfType<ElderMapBlockItem>().First();
-            Assert.IsFalse(blockItem.BooleanValue);
         }
 
         [Test]
@@ -584,6 +516,25 @@ namespace Filtration.Parser.Tests.Services
             Assert.Contains("TestOneWordProphecyInQuotes", blockItem.Items);
             Assert.Contains("TestOneWordProphecyNotInQuotes", blockItem.Items);
             Assert.Contains("Test Prophecy 2", blockItem.Items);
+        }
+
+        [Test]
+        public void TranslateStringToItemFilterBlock_HasInfluence_ReturnsCorrectObject()
+        {
+            // Arrange
+            var inputString = "Show" + Environment.NewLine +
+                              @"    HasInfluence ""Test Inf 1"" ""TestOneWordInQuotes"" TestOneWordNotInQuotes ""Test Inf 2""";
+
+            // Act
+            var result = _testUtility.Translator.TranslateStringToItemFilterBlock(inputString, _testUtility.MockItemFilterScript);
+
+            // Assert
+            Assert.AreEqual(1, result.BlockItems.Count(b => b is HasInfluenceBlockItem));
+            var blockItem = result.BlockItems.OfType<HasInfluenceBlockItem>().First();
+            Assert.Contains("Test Inf 1", blockItem.Items);
+            Assert.Contains("TestOneWordModInQuotes", blockItem.Items);
+            Assert.Contains("TestOneWordModNotInQuotes", blockItem.Items);
+            Assert.Contains("Test Inf 2", blockItem.Items);
         }
 
         [Test]
@@ -1000,17 +951,10 @@ namespace Filtration.Parser.Tests.Services
             var identifiedBlockItem = result.BlockItems.OfType<IdentifiedBlockItem>().First();
             Assert.IsTrue(identifiedBlockItem.BooleanValue);
 
-            var elderItemBlockItem = result.BlockItems.OfType<ElderItemBlockItem>().First();
-            Assert.IsTrue(elderItemBlockItem.BooleanValue);
-
-            var shaperItemBlockItem = result.BlockItems.OfType<ShaperItemBlockItem>().First();
-            Assert.IsFalse(shaperItemBlockItem.BooleanValue);
-
-            var shapedMapBlockItem = result.BlockItems.OfType<ShapedMapBlockItem>().First();
-            Assert.IsTrue(shapedMapBlockItem.BooleanValue);
-
-            var elderMapBlockItem = result.BlockItems.OfType<ElderMapBlockItem>().First();
-            Assert.IsFalse(elderMapBlockItem.BooleanValue);
+            var hasInfluenceBlockItem = result.BlockItems.OfType<HasInfluenceBlockItem>().First();
+            Assert.AreEqual(2, hasInfluenceBlockItem.Items.Count);
+            Assert.Contains("MyInfluence", hasInfluenceBlockItem.Items);
+            Assert.Contains("Another Influence", hasInfluenceBlockItem.Items);
 
             var dropLevelblockItem = result.BlockItems.OfType<DropLevelBlockItem>().First();
             Assert.AreEqual(FilterPredicateOperator.LessThan, dropLevelblockItem.FilterPredicate.PredicateOperator);
@@ -2117,6 +2061,11 @@ namespace Filtration.Parser.Tests.Services
             hasExplicitModBlockItem.Items.Add("of Tacati");
             hasExplicitModBlockItem.Items.Add("Tyrannical");
             _testUtility.TestBlock.BlockItems.Add(hasExplicitModBlockItem);
+            var hasInfluenceBlockItem = new HasInfluenceBlockItem();
+            hasInfluenceBlockItem.Items.Add("Shaper");
+            hasInfluenceBlockItem.Items.Add("Crusader");
+            hasInfluenceBlockItem.Items.Add("Warlord");
+            _testUtility.TestBlock.BlockItems.Add(hasInfluenceBlockItem);
             _testUtility.TestBlock.BlockItems.Add(new SocketsBlockItem(FilterPredicateOperator.LessThanOrEqual, 6));
             _testUtility.TestBlock.BlockItems.Add(new LinkedSocketsBlockItem(FilterPredicateOperator.GreaterThanOrEqual, 4));
             _testUtility.TestBlock.BlockItems.Add(new WidthBlockItem(FilterPredicateOperator.Equal, 3));
@@ -2127,10 +2076,6 @@ namespace Filtration.Parser.Tests.Services
             _testUtility.TestBlock.BlockItems.Add(new BorderColorBlockItem(new Color { A = 240, R = 255, G = 1, B = 254 }));
             _testUtility.TestBlock.BlockItems.Add(new FontSizeBlockItem(50));
             _testUtility.TestBlock.BlockItems.Add(new SoundBlockItem("6", 90));
-            _testUtility.TestBlock.BlockItems.Add(new ElderItemBlockItem(true));
-            _testUtility.TestBlock.BlockItems.Add(new ShaperItemBlockItem(false));
-            _testUtility.TestBlock.BlockItems.Add(new ShapedMapBlockItem(true));
-            _testUtility.TestBlock.BlockItems.Add(new ElderMapBlockItem(true));
             _testUtility.TestBlock.BlockItems.Add(new CustomSoundBlockItem("test.mp3"));
             _testUtility.TestBlock.BlockItems.Add(new MapTierBlockItem(FilterPredicateOperator.LessThan, 10));
             _testUtility.TestBlock.BlockItems.Add(new MapIconBlockItem(IconSize.Medium, IconColor.Blue, IconShape.Circle));

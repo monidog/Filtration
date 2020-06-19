@@ -61,6 +61,14 @@ namespace Filtration.ObjectModel.BlockItemTypes
                 {
                     return SocketColor.White;
                 }
+                case 'A':
+                {
+                    return SocketColor.Abyss;
+                }
+                case 'D':
+                {
+                    return SocketColor.Delve;
+                }
                 default:
                 {
                     throw new InvalidOperationException("Invalid socket color");

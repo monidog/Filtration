@@ -13,6 +13,8 @@ namespace Filtration.ObjectModel.Enums
         [Description(">")]
         GreaterThan,
         [Description(">=")]
-        GreaterThanOrEqual
+        GreaterThanOrEqual,
+        [Description("==")]
+        ExactEqual
     }
 }

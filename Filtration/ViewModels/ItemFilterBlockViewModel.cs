@@ -210,6 +210,8 @@ namespace Filtration.ViewModels
 
         public IEnumerable<string> AutocompleteEnchantments => _staticDataService.Enchantments;
 
+        public IEnumerable<string> AutocompleteInfluenceTypes => _staticDataService.Influences;
+
         public List<Type> BlockItemTypesAvailable => new List<Type>
         {
             typeof (ItemLevelBlockItem),
@@ -226,19 +228,16 @@ namespace Filtration.ViewModels
             typeof (ProphecyBlockItem),
             typeof (IdentifiedBlockItem),
             typeof (CorruptedBlockItem),
-            typeof (ElderItemBlockItem),
-            typeof (ShaperItemBlockItem),
             typeof (SynthesisedItemBlockItem),
             typeof (FracturedItemBlockItem),
             typeof (AnyEnchantmentBlockItem),
             typeof (MapTierBlockItem),
-            typeof (ShapedMapBlockItem),
-            typeof (ElderMapBlockItem),
             typeof (BlightedMapBlockItem),
             typeof (GemLevelBlockItem),
             typeof (StackSizeBlockItem),
             typeof (HasExplicitModBlockItem),
             typeof (HasEnchantmentBlockItem),
+            typeof (HasInfluenceBlockItem)
         };
 
         public List<Type> AudioVisualBlockItemTypesAvailable => new List<Type>
