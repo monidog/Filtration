@@ -18,7 +18,7 @@
     </UserControl.Resources>
     <Grid Height="20">
         <Grid.Resources>
-            <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroComboBox}">
+            <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MahApps.Styles.ComboBox}">
                 <Setter Property="MinHeight" Value="0" />
             </Style>
         </Grid.Resources>
