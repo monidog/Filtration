@@ -79,12 +79,14 @@
     <Compile Include="BlockItemTypes\ProphecyBlockItem.cs" />
     <Compile Include="BlockItemTypes\SynthesisedItemBlockItem.cs" />
     <Compile Include="BlockItemTypes\CorruptedBlockItem.cs" />
+    <Compile Include="BlockItemTypes\CorruptedModsBlockItem.cs" />
     <Compile Include="BlockItemTypes\MirroredBlockItem.cs" />
     <Compile Include="BlockItemTypes\DropLevelBlockItem.cs" />
     <Compile Include="BlockItemTypes\FontSizeBlockItem.cs" />
     <Compile Include="BlockItemTypes\HeightBlockItem.cs" />
     <Compile Include="BlockItemTypes\IdentifiedBlockItem.cs" />
     <Compile Include="BlockItemTypes\ItemLevelBlockItem.cs" />
+    <Compile Include="BlockItemTypes\AreaLevelBlockItem.cs" />
     <Compile Include="BlockItemTypes\LinkedSocketsBlockItem.cs" />
     <Compile Include="BlockItemTypes\QualityBlockItem.cs" />
     <Compile Include="BlockItemTypes\RarityBlockItem.cs" />

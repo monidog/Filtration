@@ -127,6 +127,11 @@ namespace Filtration.Parser.Services
                         AddNumericFilterPredicateItemToBlockItems<DropLevelBlockItem>(block, trimmedLine);
                         break;
                     }
+                    case "AreaLevel":
+                    {
+                        AddNumericFilterPredicateItemToBlockItems<AreaLevelBlockItem>(block, trimmedLine);
+                        break;
+                    }
                     case "Quality":
                     {
                         AddNumericFilterPredicateItemToBlockItems<QualityBlockItem>(block,trimmedLine);
@@ -320,6 +325,11 @@ namespace Filtration.Parser.Services
                     case "StackSize":
                     {
                         AddNumericFilterPredicateItemToBlockItems<StackSizeBlockItem>(block, trimmedLine);
+                        break;
+                    }
+                    case "CorruptedMods":
+                    {
+                        AddNumericFilterPredicateItemToBlockItems<CorruptedModsBlockItem>(block, trimmedLine);
                         break;
                     }
                     case "HasExplicitMod":

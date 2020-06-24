@@ -216,6 +216,7 @@ namespace Filtration.ViewModels
         {
             typeof (ItemLevelBlockItem),
             typeof (DropLevelBlockItem),
+            typeof (AreaLevelBlockItem),
             typeof (QualityBlockItem),
             typeof (RarityBlockItem),
             typeof (SocketsBlockItem),
@@ -228,6 +229,7 @@ namespace Filtration.ViewModels
             typeof (ProphecyBlockItem),
             typeof (IdentifiedBlockItem),
             typeof (CorruptedBlockItem),
+            typeof (CorruptedModsBlockItem),
             typeof (MirroredBlockItem),
             typeof (SynthesisedItemBlockItem),
             typeof (FracturedItemBlockItem),

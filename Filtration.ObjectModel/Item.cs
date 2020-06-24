@@ -16,6 +16,7 @@ namespace Filtration.ObjectModel
         string BaseType { get; set; }
         int DropLevel { get; set; }
         int ItemLevel { get; set; }
+        int AreaLevel { get; set; }
         int Height { get; set; }
         int Width { get; set; }
         int Quality { get; set; }
@@ -49,6 +50,8 @@ namespace Filtration.ObjectModel
         public int DropLevel { get; set; }
 
         public int ItemLevel { get; set; }
+
+        public int AreaLevel { get; set; }
 
         public int Height { get; set; }
 
