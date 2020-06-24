@@ -374,6 +374,23 @@ namespace Filtration.Parser.Tests.Services
         }
 
         [Test]
+        public void TranslateStringToItemFilterBlock_Mirrored_ReturnsCorrectObject()
+        {
+            // Arrange
+            var inputString = "Show" + Environment.NewLine +
+                              "    Mirrored True";
+
+            // Act
+            var result = _testUtility.Translator.TranslateStringToItemFilterBlock(inputString, _testUtility.MockItemFilterScript);
+
+            // Assert
+
+            Assert.AreEqual(1, result.BlockItems.Count(b => b is MirroredBlockItem));
+            var blockItem = result.BlockItems.OfType<MirroredBlockItem>().First();
+            Assert.IsTrue(blockItem.BooleanValue);
+        }
+
+        [Test]
         public void TranslateStringToItemFilterBlock_MapTier_ReturnsCorrectObject()
         {
             // Arrange

@@ -33,7 +33,7 @@ namespace Filtration.ObjectModel.BlockItemTypes
         }
 
         public override Color SummaryBackgroundColor => Colors.DarkSlateBlue;
-        public override Color SummaryTextColor => Colors.Black;
+        public override Color SummaryTextColor => Colors.White;
         public override BlockItemOrdering SortOrder => BlockItemOrdering.HasInfluence;
     }
 }

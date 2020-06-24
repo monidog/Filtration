@@ -228,6 +228,7 @@ namespace Filtration.ViewModels
             typeof (ProphecyBlockItem),
             typeof (IdentifiedBlockItem),
             typeof (CorruptedBlockItem),
+            typeof (MirroredBlockItem),
             typeof (SynthesisedItemBlockItem),
             typeof (FracturedItemBlockItem),
             typeof (AnyEnchantmentBlockItem),

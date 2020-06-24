@@ -169,6 +169,11 @@ namespace Filtration.Parser.Services
                         AddBooleanItemToBlockItems<CorruptedBlockItem>(block, trimmedLine);
                         break;
                     }
+                    case "Mirrored":
+                    {
+                        AddBooleanItemToBlockItems<MirroredBlockItem>(block, trimmedLine);
+                        break;
+                    }
                     case "Identified":
                     {
                         AddBooleanItemToBlockItems<IdentifiedBlockItem>(block, trimmedLine);

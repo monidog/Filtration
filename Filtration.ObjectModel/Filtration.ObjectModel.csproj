@@ -79,6 +79,7 @@
     <Compile Include="BlockItemTypes\ProphecyBlockItem.cs" />
     <Compile Include="BlockItemTypes\SynthesisedItemBlockItem.cs" />
     <Compile Include="BlockItemTypes\CorruptedBlockItem.cs" />
+    <Compile Include="BlockItemTypes\MirroredBlockItem.cs" />
     <Compile Include="BlockItemTypes\DropLevelBlockItem.cs" />
     <Compile Include="BlockItemTypes\FontSizeBlockItem.cs" />
     <Compile Include="BlockItemTypes\HeightBlockItem.cs" />
