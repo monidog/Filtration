@@ -17,6 +17,9 @@ namespace Filtration.Converters
 		private static readonly int emptyRow = 1;
 		private static readonly int colorCount = Enum.GetNames(typeof(IconColor)).Length;
 		private static readonly int shapeCount = Enum.GetNames(typeof(IconShape)).Length;
+		private static readonly float sizeSmall = 0.4f;
+		private static readonly float sizeMedium = 0.5f;
+		private static readonly float sizeLarge = 0.6f;
 		private static readonly Uri uri;
 		private static readonly CroppedBitmap empty;
 		private static readonly List<CroppedBitmap> bitmaps;
@@ -80,8 +83,21 @@ namespace Filtration.Converters
 				return empty;
 			}
 			else
-			{			                 
-				return bitmaps[iconIndex];
+			{
+				float size = 0;
+				switch(iconSize) {
+					case (int)IconSize.Small: 
+						size = sizeSmall;
+						break;
+					case (int)IconSize.Medium: 
+						size = sizeMedium;
+						break;
+					case (int)IconSize.Largest: 
+						size = sizeLarge;
+						break;
+				}
+				                 
+				return new TransformedBitmap(bitmaps[iconIndex], new ScaleTransform(size, size));
 			}
 		}
 
