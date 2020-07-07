@@ -357,7 +357,7 @@ namespace Filtration.Parser.Services
 
                         // TODO: Get size, color, shape values programmatically
                         var match = Regex.Match(trimmedLine,
-                            @"\S+\s+(0|1|2)\s+(Red|Green|Blue|Brown|White|Yellow)\s+(Circle|Diamond|Hexagon|Square|Star|Triangle)\s*([#]?)(.*)",
+                            @"\S+\s+(0|1|2)\s+(Red|Green|Blue|Brown|White|Yellow|Cyan|Grey|Orange|Pink|Purple)\s+(Circle|Diamond|Hexagon|Square|Star|Triangle|Cross|Moon|Raindrop|Kite|Pentagon|UpsideDownHouse)\s*([#]?)(.*)",
                             RegexOptions.IgnoreCase);
 
                         if (match.Success)
@@ -380,7 +380,7 @@ namespace Filtration.Parser.Services
                         RemoveExistingBlockItemsOfType<PlayEffectBlockItem>(block);
 
                         // TODO: Get colors programmatically
-                        var match = Regex.Match(trimmedLine, @"\S+\s+(Red|Green|Blue|Brown|White|Yellow)\s*(Temp)?", RegexOptions.IgnoreCase);
+                        var match = Regex.Match(trimmedLine, @"\S+\s+(Red|Green|Blue|Brown|White|Yellow|Cyan|Grey|Orange|Pink|Purple)\s*(Temp)?", RegexOptions.IgnoreCase);
 
                         if (match.Success)
                         {
@@ -691,7 +691,7 @@ namespace Filtration.Parser.Services
                     {
                         // TODO: Get size, color, shape values programmatically
                         var match = Regex.Match(trimmedLine,
-                            @"\S+\s+(0|1|2)\s+(Red|Green|Blue|Brown|White|Yellow)\s+(Circle|Diamond|Hexagon|Square|Star|Triangle)\s*([#]?)(.*)",
+                            @"\S+\s+(0|1|2)\s+(Red|Green|Blue|Brown|White|Yellow|Cyan|Grey|Orange|Pink|Purple)\s+(Circle|Diamond|Hexagon|Square|Star|Triangle|Cross|Moon|Raindrop|Kite|Pentagon|UpsideDownHouse)\s*([#]?)(.*)",
                             RegexOptions.IgnoreCase);
 
                         if (match.Success)
@@ -710,7 +710,7 @@ namespace Filtration.Parser.Services
                     case "PlayEffect":
                     {
                         // TODO: Get colors programmatically
-                        var match = Regex.Match(trimmedLine, @"\S+\s+(Red|Green|Blue|Brown|White|Yellow)\s*(Temp)?", RegexOptions.IgnoreCase);
+                        var match = Regex.Match(trimmedLine, @"\S+\s+(Red|Green|Blue|Brown|White|Yellow|Cyan|Grey|Orange|Pink|Purple)\s*(Temp)?", RegexOptions.IgnoreCase);
 
                         if (match.Success)
                         {
