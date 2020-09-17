@@ -4,10 +4,12 @@ Amulets
 Atlas Region Upgrade Item
 Axes
 Belts
+Blueprint
 Body Armours
 Boots
 Bows
 Claws
+Contract
 Currency
 Daggers
 Delve Socketable Currency
@@ -18,6 +20,11 @@ Flasks
 Gems
 Gloves
 HarvestInfrastructure
+Heist Brooch
+Heist Cloak
+Heist Gear
+Heist Target
+Heist Tool
 Helmets
 Hybrid Flasks
 Incubator
@@ -54,6 +61,7 @@ Staves
 Support Skill Gems
 Swords
 Thrusting One Hand Swords
+Trinket
 Two Hand Axes
 Two Hand Maces
 Two Hand Swords

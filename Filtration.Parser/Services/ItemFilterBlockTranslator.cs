@@ -179,6 +179,11 @@ namespace Filtration.Parser.Services
                         AddBooleanItemToBlockItems<MirroredBlockItem>(block, trimmedLine);
                         break;
                     }
+                    case "Replica":
+                    {
+                        AddBooleanItemToBlockItems<ReplicaBlockItem>(block, trimmedLine);
+                        break;
+                    }
                     case "Identified":
                     {
                         AddBooleanItemToBlockItems<IdentifiedBlockItem>(block, trimmedLine);
@@ -320,6 +325,11 @@ namespace Filtration.Parser.Services
                     case "GemLevel":
                     {
                         AddNumericFilterPredicateItemToBlockItems<GemLevelBlockItem>(block, trimmedLine);
+                        break;
+                    }
+                    case "AlternateQuality":
+                    {
+                        AddBooleanItemToBlockItems<AlternateQualityBlockItem>(block, trimmedLine);
                         break;
                     }
                     case "StackSize":
